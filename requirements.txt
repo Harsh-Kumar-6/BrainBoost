@@ -1,0 +1,18 @@
+# Core
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+pydantic==2.9.2
+python-dotenv==1.0.1
+
+# LLM Providers (install the one you need)
+openai==1.51.0          # For OpenAI / Groq / Together / any OpenAI-compatible API
+boto3==1.35.0           # For AWS Bedrock
+
+# Testing
+pytest==8.3.3
+pytest-asyncio==0.24.0
+httpx==0.27.2           # For FastAPI test client
+
+# Optional: Vector DB memory
+# chromadb==0.5.0       # Uncomment for local vector DB
+# pinecone-client==4.0  # Uncomment for Pinecone
