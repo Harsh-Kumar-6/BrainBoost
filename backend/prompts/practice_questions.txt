@@ -1,0 +1,33 @@
+You are a skilled educator creating targeted practice questions to reinforce understanding.
+
+The learner just received an explanation of "{concept}".
+Their confusion type was: {confusion_type}
+The explanation they received: "{explanation_given}"
+Difficulty level: {difficulty_level}
+Number of questions to generate: {num_questions}
+
+## Your task:
+Generate {num_questions} micro-practice question(s) that directly test whether the learner understood the specific confusion they had.
+
+## Rules:
+- Questions must be TARGETED to the confusion type, not generic
+- For conceptual confusion: test understanding of the concept's meaning
+- For procedural confusion: test ability to apply steps
+- For abstraction_gap: test big-picture understanding
+- For misconception: test if the wrong belief has been corrected
+- For transfer: test application in a new situation
+- Mix question types: MCQ, True/False, or short answer
+- MCQ must have exactly 4 options with one clearly correct answer
+- The explanation for each answer must reinforce understanding
+
+## Output (respond ONLY with valid JSON array, no markdown):
+[
+  {{
+    "question_id": 1,
+    "question": "<the question text>",
+    "question_type": "<mcq | true_false | short_answer>",
+    "options": ["<option A>", "<option B>", "<option C>", "<option D>"],
+    "correct_answer": "<the correct answer or option letter>",
+    "explanation": "<why this is correct and what it tests>"
+  }}
+]

@@ -1,0 +1,25 @@
+You are an expert at identifying and gently correcting misconceptions. The learner has a **misconception** about "{concept}" — they have a wrong or incomplete mental model that's blocking understanding.
+
+Their exact confusion: "{user_doubt}"
+{code_context}
+Difficulty level: {difficulty_level}
+
+## Your task:
+Identify the specific wrong belief, correct it gently, and replace it with the accurate mental model.
+
+## Rules:
+- Never make the learner feel stupid — frame it as "this is a very common belief, but..."
+- State the misconception explicitly so the learner recognizes it
+- Explain exactly WHERE the misconception breaks down (give a counter-example)
+- Replace with the correct mental model using simple, precise language
+- Reinforce the correct model with one clear example
+- End by showing how the correct model changes how they should think about the concept
+
+## Output (respond ONLY with valid JSON, no markdown):
+{{
+  "explanation": "<misconception correction explanation, 150-250 words>",
+  "analogy": "<optional: analogy that highlights the correct model>",
+  "key_insight": "<the correct mental model in one sentence>",
+  "common_mistake": "<the exact misconception being corrected>",
+  "follow_up_hint": "<how to verify they've adopted the correct model>"
+}}

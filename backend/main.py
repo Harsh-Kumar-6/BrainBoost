@@ -57,3 +57,25 @@ app.add_middleware(
 app.include_router(explain_router)
 app.include_router(practice_router)
 
+# ── Health Check ───────────────────────────────────────────────
+@app.get("/", response_model=HealthResponse, tags=["health"])
+async def root():
+    return HealthResponse(status="ok", version="1.0.0")
+
+@app.get("/health", response_model=HealthResponse, tags=["Health"])
+async def health():
+    return HealthResponse(status="ok", version="1.0.0")
+
+# ── Global Error Handler ───────────────────────────────────────
+@app.exception_handler(Exception)
+async def global_exception_handler(request, exc):
+    logger.error(f"Unhandled error: {exc}", exc_info=True)
+    return JSONResponse(
+        status_code=500,
+        content={"detail": "An unexpected error occurred. Please try again later."},
+    )
+
+# ── Dev run ────────────────────────────────────────────────────
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
